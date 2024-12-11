@@ -24,17 +24,35 @@ document.getElementById("showBtn").addEventListener("click",function() {
 //     textcolor.classList.add("text-danger","text-center")
 // })
 
-function updateClass(className){
+function textChangedColor(className){
     let textcolor=document.getElementById("titre")
     textcolor.removeAttribute("class")
     textcolor.classList.add("text-center",className)
 }
 document.getElementById("prim").addEventListener("click", function(){
-    updateClass("text-primary")
+    textChangedColor("text-primary")
 })
 document.getElementById("secon").addEventListener("click", function(){
-    updateClass("text-secondary")
+    textChangedColor("text-secondary")
 })
 document.getElementById("dang").addEventListener("click", function(){
-    updateClass("text-danger")
+    textChangedColor("text-danger")
 })
+document.getElementById("clear").addEventListener("click", function(){
+    document.getElementById("titre").innerText=""
+    document.getElementById("in").value=""
+})
+document.getElementById("in").addEventListener("keyup",function(event){
+event.preventDefault();
+if (event.keyCode===13){
+        let text=document.getElementById("in").value;
+        document.getElementById("titre").innerText=text;
+    }
+    })
+document.getElementById("in").addEventListener("keyup",function(event){
+    event.preventDefault();
+    if (event.keyCode===27){
+            document.getElementById("titre").innerText="";
+            document.getElementById("in").value="";
+    }
+    })
